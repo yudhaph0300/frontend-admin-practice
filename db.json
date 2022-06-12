@@ -1,0 +1,94 @@
+{
+  "offices": [
+    {
+      "id": 1,
+      "created_by": 1,
+      "name": "Infinite Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603"
+    },
+    {
+      "id": 2,
+      "created_by": 2,
+      "name": "Eduaction Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603"
+    },
+    {
+      "id": 3,
+      "created_by": 2,
+      "name": "Desapa Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603"
+    },
+    {
+      "id": 4,
+      "created_by": 1,
+      "name": "Piw-Piw Office",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "location": "Bandung",
+      "price": "1000000",
+      "kursi_min": 10,
+      "kursi_max": 30,
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603"
+    },
+    {
+      "created_by": 1,
+      "name": "Big Boss Office",
+      "description": "Lorem ipsum dolor sit amet",
+      "location": "Surabaya",
+      "price": "2000000",
+      "kursi_min": "20",
+      "kursi_max": "50",
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603",
+      "id": 5
+    },
+    {
+      "created_by": 1,
+      "name": "Small office",
+      "description": "lorem ipsum dolor sit amet",
+      "location": "kepanjen",
+      "price": "20000",
+      "kursi_min": "5",
+      "kursi_max": "10",
+      "photo": "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603",
+      "id": 6
+    },
+    {
+      "name": "Large Office",
+      "location": "Jombang",
+      "price": "2000000",
+      "kursi_min": "20",
+      "kursi_max": "35",
+      "id": 7
+    },
+    {
+      "name": "Shutter Office",
+      "location": "Yogyakarta",
+      "price": "5000000",
+      "kursi_min": "50",
+      "kursi_max": "70",
+      "id": 8
+    },
+    {
+      "name": "Pixels Studio",
+      "location": "Malang",
+      "price": "3000000",
+      "kursi_min": "30",
+      "kursi_max": "60",
+      "id": 9
+    }
+  ]
+}
