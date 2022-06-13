@@ -5,11 +5,13 @@
 
   <v-app>
     <template>
+      <v-card>
         <v-data-table
             :headers="headers"
             :items="offices"
-            sort-by="calories"
-            class="elevation-1"
+            :search="search"
+            sort-by="id"
+            class="elevation-0"
         >
             <template v-slot:top>
             <v-toolbar
@@ -21,6 +23,22 @@
                 inset
                 vertical
                 ></v-divider>
+                
+                <v-row>
+                  <v-col>
+                    <v-card-title>
+                      <v-text-field
+                        v-model="search"
+                        append-icon="mdi-magnify"
+                        label="Search"
+                        single-line
+                        hide-details
+                      ></v-text-field>
+                    </v-card-title>
+                  </v-col>
+                </v-row>
+
+                
                 <v-spacer></v-spacer>
                 <v-dialog
                 v-model="dialog"
@@ -34,13 +52,13 @@
                     v-bind="attrs"
                     v-on="on"
                     >
-                    New Item
+                    New Office
                     </v-btn>
                 </template>
                 <v-card>
                     <v-card-title>
                     <span class="text-h5">{{ formTitle }}</span>
-                    <h1>{{ editedItem.id }}</h1>
+                    
                     </v-card-title>
 
                     <v-card-text>
@@ -121,7 +139,7 @@
                 </v-dialog>
                 <v-dialog v-model="dialogDelete" max-width="500px">
                 <v-card>
-                    <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
+                    <v-card-title class="text-h6">Are you sure you want to delete this office?</v-card-title>
                     <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
@@ -130,33 +148,92 @@
                     </v-card-actions>
                 </v-card>
                 </v-dialog>
+
+
+
+                <v-dialog v-model="dialogView" max-width="800px">
+                
+                  <v-card>
+                    <v-img
+                      height="350"
+                      :src="editedItem.photo"
+                    ></v-img>
+
+                    <v-card-title>{{ editedItem.name }}</v-card-title>
+
+                    <v-card-text>
+                      <v-row
+                        align="center"
+                        class="mx-0"
+                      >
+                        <v-rating
+                          :value="4.5"
+                          color="amber"
+                          dense
+                          half-increments
+                          readonly
+                          size="14"
+                        ></v-rating>
+
+                        <div class="grey--text ms-4">
+                          4.5 (413)
+                        </div>
+                      </v-row>
+
+                      <div class="my-4 text-subtitle-1">
+                        {{ editedItem.location }}
+                      </div>
+
+                      <div>{{ editedItem.description }}</div>
+                    </v-card-text>
+
+                    <v-divider class="mx-4"></v-divider>
+
+                    <v-card-title>Rp. {{ editedItem.price }},-</v-card-title>
+
+                    <v-card-text>
+                      Capacity : {{ editedItem.kursi_min }} - {{editedItem.kursi_max}}
+                    </v-card-text>
+                    <v-card-text>
+                      Created by: {{ editedItem.created_by }}
+                    </v-card-text>
+
+                    <v-card-actions>
+                      <v-btn
+                        block
+                        color="primary"
+                        @click="closeView"
+                      >
+                        Close
+                      </v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
             </v-toolbar>
             </template>
             <template v-slot:[`item.actions`]="{ item }">
-            <v-icon
-                small
-                class="mr-2"
-                @click="editItem(item)"
-            >
-                mdi-pencil
-            </v-icon>
-            <v-icon
-                small
-                @click="deleteItem(item)"
-            >
-                mdi-delete
-            </v-icon>
+              <v-icon
+               @click="viewDetail(item)"
+              >
+                mdi-information
+              </v-icon>
+              <v-icon
+               class="mx-2"
+               @click="editItem(item)"
+              >
+                  mdi-pencil-circle
+              </v-icon>
+              <v-icon
+               @click="deleteItem(item)"
+              >
+                  mdi-delete-circle
+              </v-icon>
             </template>
-            <template v-slot:no-data>
-            <v-btn
-                color="primary"
-                @click="initialize"
-            >
-                Reset
-            </v-btn>
-            </template>
+            
         </v-data-table>
+      </v-card>
         </template>
+        
   </v-app>
 </template>
 
@@ -166,13 +243,16 @@ import axios from 'axios'
   export default {
     name: 'OfficesTest',
     data: () => ({
+      search: '',
       dialog: false,
       dialogDelete: false,
+      dialogView: false,
       headers: [
         {
           text: 'Id',
           align: 'start',
           sortable: false,
+          filterable: false,
           value: 'id',
         },
 
@@ -187,19 +267,29 @@ import axios from 'axios'
       offices: [],
       editedIndex: -1,
       editedItem: {
+        id: 0,
+        created_by: 0,
         name: '',
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0,
+        description: '',
+        location: '',
+        price: 0,
+        kursi_min: 0,
+        kursi_max: 0,
+        photo: ''
+
       },
       defaultItem: {
+        id: 0,
+        created_by: 0,
         name: '',
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0,
+        description: '',
+        location: '',
+        price: 0,
+        kursi_min: 0,
+        kursi_max: 0,
+        photo: ''
       },
+
     }),
 
     computed: {
@@ -215,6 +305,9 @@ import axios from 'axios'
       dialogDelete (val) {
         val || this.closeDelete()
       },
+      dialogView (val) {
+        val || this.close()
+      }
     },
 
     async mounted() {
@@ -229,6 +322,12 @@ import axios from 'axios'
 
       initialize () {
         this.loadData()
+      },
+
+      viewDetail(item) {
+        this.editedIndex = this.offices.indexOf(item)
+        this.editedItem = Object.assign({}, item)
+        this.dialogView = true
       },
 
       editItem (item) {
@@ -250,6 +349,15 @@ import axios from 'axios'
             console.log(response)
         })
         this.closeDelete()
+      },
+
+      closeView() {
+        this.dialogView = false
+        this.$nextTick(() => {
+          this.editedItem = Object.assign({}, this.defaultItem)
+          this.editedIndex = -1
+        })
+        this.initialize()
       },
 
       close () {

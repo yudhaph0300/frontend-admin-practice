@@ -89,6 +89,14 @@
       "kursi_min": "30",
       "kursi_max": "60",
       "id": 9
+    },
+    {
+      "name": "Pinterest",
+      "location": "America",
+      "price": "250000000",
+      "kursi_min": "200",
+      "kursi_max": "250",
+      "id": 10
     }
   ]
 }
