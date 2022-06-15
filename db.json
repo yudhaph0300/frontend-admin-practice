@@ -34,15 +34,12 @@
       "photo": "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603"
     },
     {
-      "id": 4,
-      "created_by": 1,
-      "name": "Piw-Piw Office",
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, doloremque saepe molestiae, deserunt explicabo, dolores blanditiis amet perspiciatis libero eligendi vel beatae veniam assumenda obcaecati nam fugiat expedita incidunt repellendus.",
+      "name": "Barista Office",
       "location": "Bandung",
       "price": "1000000",
       "kursi_min": 10,
       "kursi_max": 30,
-      "photo": "https://ik.imagekit.io/yudha/practice_admin/room_1_3qvD5PqxS?ik-sdk-version=javascript-1.4.3&updatedAt=1654877227603"
+      "id": 4
     },
     {
       "created_by": 1,
@@ -68,7 +65,7 @@
     },
     {
       "name": "Large Office",
-      "location": "Jombang",
+      "location": "Jaksel",
       "price": "2000000",
       "kursi_min": "20",
       "kursi_max": "35",
@@ -83,20 +80,20 @@
       "id": 8
     },
     {
-      "name": "Pixels Studio",
-      "location": "Malang",
-      "price": "3000000",
-      "kursi_min": "30",
-      "kursi_max": "60",
-      "id": 9
+      "name": "King Office",
+      "location": "Jkt",
+      "price": "1000000",
+      "kursi_min": "20",
+      "kursi_max": "26",
+      "id": 11
     },
     {
-      "name": "Pinterest",
-      "location": "America",
-      "price": "250000000",
-      "kursi_min": "200",
-      "kursi_max": "250",
-      "id": 10
+      "name": "Rain Office",
+      "location": "Malang",
+      "price": "2000000",
+      "kursi_min": "30",
+      "kursi_max": "50",
+      "id": 12
     }
   ]
 }

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import OfficesPage from '../views/OfficesPage.vue'
-import OfficesTest from '../views/OfficesTest.vue'
+import DashboardView from '../views/DashboardView.vue'
 
 Vue.use(VueRouter)
 
@@ -12,10 +12,10 @@ const routes = [
     component: OfficesPage
   },
   {
-    path: '/officestest',
-    name: 'office test',
-    component: OfficesTest
-  },
+    path: '/dashboard',
+    name: 'dashboard',
+    component: DashboardView
+  }
 ]
 
 const router = new VueRouter({
